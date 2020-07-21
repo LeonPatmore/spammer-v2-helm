@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spammer-leader
+  labels:
+    app: spammer
+    type: leader
+spec:
+  selector:
+    matchLabels:
+      app: spammer
+      type: leader
+  template:
+    metadata:
+      labels:
+        app: spammer
+        type: leader
+    spec:
+      containers:
+      - name: spammer
+        image: leonpatmore/spammer-v2:872b0276d9991e48d403aa3b71ff2fda81808322
+        ports:
+        - containerPort: 80
+        env:
+        - name: SPAMMER_PORT
+          value: "80"
+        - name: SPAMMER_TYPE
+          value: leader

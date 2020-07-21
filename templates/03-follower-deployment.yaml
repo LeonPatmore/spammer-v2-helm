@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spammer-follower
+  labels:
+    app: spammer
+    type: follower
+spec:
+  replicas: {{ .Values.followerReplicas }}
+  selector:
+    matchLabels:
+      app: spammer
+      type: follower
+  template:
+    metadata:
+      labels:
+        app: spammer
+        type: follower
+    spec:
+      containers:
+      - name: spammer
+        image: leonpatmore/spammer-v2:872b0276d9991e48d403aa3b71ff2fda81808322
+        ports:
+        - containerPort: 80
+        env:
+        - name: SPAMMER_PORT
+          value: "80"
+        - name: SPAMMER_TYPE
+          value: follower
+        - name: SPAMMER_INITIAL_LEADER_SOCKET_ADDRESS
+          value: "spammer-leader:80"

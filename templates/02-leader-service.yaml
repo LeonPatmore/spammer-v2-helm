@@ -1,0 +1,12 @@
+kind: Service 
+apiVersion: v1 
+metadata:
+  name: spammer-leader
+spec:
+  type: LoadBalancer
+  selector:
+    app: spammer
+    type: leader
+  ports:
+    - port: 80 
+      targetPort: 80
