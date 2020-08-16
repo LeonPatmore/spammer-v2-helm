@@ -1,5 +1,5 @@
-kind: Service 
-apiVersion: v1 
+kind: Service
+apiVersion: v1
 metadata:
   name: spammer-leader
 spec:
@@ -8,5 +8,9 @@ spec:
     app: spammer
     type: leader
   ports:
-    - port: 80 
+    - name: ui
+      port: 80
       targetPort: 80
+    - name: api
+      port: 8080
+      targetPort: 8080
