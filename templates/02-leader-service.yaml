@@ -10,7 +10,7 @@ spec:
   ports:
     - name: ui
       port: 80
-      targetPort: 80
+      targetPort: 3000
     - name: api
       port: 8080
       targetPort: 8080
