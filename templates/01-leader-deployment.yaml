@@ -27,7 +27,7 @@ spec:
         - name: SPAMMER_TYPE
           value: leader
       - name: ui
-        image: leonpatmore/spammer-v2-ui:b005cea2647c39b67e5492562e4d96a49a1f79ae
+        image: leonpatmore/spammer-v2-ui:a12d31d076330580f678ad7e5dd67b5752252e92
         ports:
         - containerPort: 3000
         env:
