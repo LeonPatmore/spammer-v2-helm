@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: spammer
-        image: leonpatmore/spammer-v2:f5d1341e07ea58be50041d69a5e63ce3bfbb52ed
+        image: leonpatmore/spammer-v2:b725316ad0c71493d2b636519476f168dc0d88c1
         ports:
         - containerPort: 8080
         env:
@@ -27,9 +27,11 @@ spec:
         - name: SPAMMER_TYPE
           value: leader
       - name: ui
-        image: leonpatmore/spammer-v2-ui:a12d31d076330580f678ad7e5dd67b5752252e92
+        image: leonpatmore/spammer-v2-ui:7120557cf6df7ce6da1034bf8138534dd3aa3e73
         ports:
         - containerPort: 3000
         env:
-        - name: SPAMMER_API_PORT
+        - name: SPAMMER_LEADER_HOST
+          value: "localhost"
+        - name: SPAMMER_LEADER_PORT
           value: "8080"
